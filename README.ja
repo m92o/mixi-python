@@ -1,0 +1,26 @@
+#
+# Python用 mixiライブラリ
+#
+# Copyright (c) 2009 Kunio Murasawa <kunio.murasawa@gmail.com>
+#
+
+名前
+ mixi.py
+
+作者
+ Kunio Murasawa <kunio.murasawa@gmail.com>
+
+対応機能
+ - ログイン
+  - login
+
+ - ボイス
+  - 発言
+   - add_echo
+
+取得方法
+ $ git clone git://github.com/m92o/mixi-python.git mixi-python
+
+ライセンス
+ BSDライセンス
+ 詳細は附属のLICENCEファイルを参照
