@@ -11,15 +11,31 @@
  Kunio Murasawa <kunio.murasawa@gmail.com>
 
 対応機能
+ - 初期化
+  - __init__(self, user, password, use_ssl = False)
+
  - ログイン
-  - login
+  - login(self)
 
  - ボイス
   - 発言
-   - add_echo
+   - add_echo(self, message)
 
 取得方法
  $ git clone git://github.com/m92o/mixi-python.git mixi-python
+
+使い方
+ # ライブラリ読み込み
+ import mixi
+
+ # 初期化
+ mixi = mixi.Mixi(user, pass, true)
+
+ # ログイン
+ mixi.login()
+
+ # 発言
+ mixi.add_echo("メッセージ")
 
 ライセンス
  BSDライセンス

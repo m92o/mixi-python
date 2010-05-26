@@ -52,7 +52,7 @@ class Mixi(object):
     # htmlからpost_keyを取り出す
     def _get_post_key(self):
         # 発言、削除時に必要なキー
-        res = self._request(self.GET, "/recent_echo.pl")
+        res = self._request(self.GET, "/recent_voice.pl")
 
         #パースに失敗してしまうので、別の方法にした
         #soup = BeautifulSoup(res.read().decode('euc-jp'))
@@ -89,19 +89,13 @@ class Mixi(object):
         self._get_post_key()
 
     # add echo (発言)
-    #  返信の場合は、返信したいボイスのmember_idとpost_timeを指定
-    def add_echo(self, message, member_id = None, post_time = None):
-        path = "/add_echo.pl"
+    def add_echo(self, message):
+        path = "/add_voice.pl"
 
         if len(message) > 150:
             raise ValueError("Too long (>150)")
 
         # body
-        if member_id != None and post_time != None:
-            res = "&parent_member_id=" + member_id + "&parent_post_time=" + post_time
-        else:
-            res = ""
-
-        body = "body=" + urllib.quote(self._decode(message).encode("euc-jp")) + res + self.post_key + self.REDIRECT
+        body = "body=" + urllib.quote(self._decode(message).encode("euc-jp")) + self.post_key + self.REDIRECT
 
         self._request(self.POST, path, body)
